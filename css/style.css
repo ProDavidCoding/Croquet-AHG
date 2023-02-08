@@ -1,0 +1,386 @@
+:root {
+    --main_bg_color: #4e87e9;
+    --dark_bg_color: #1a5dd1;
+    --light_bg_color: #6b9ef5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+/* Loader wrapper */
+
+.loader-wrapper {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-color: var(--main_bg_color);
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+.game-icon {
+    text-align: center;
+    top: 100%;
+    transform: translate(0%, 50%);
+
+    pointer-events: all;
+}
+
+.game-icon img {
+    cursor: pointer;
+    height: 500px;
+
+    transition: all .5s;
+
+    transform: translate(-3%, 0);
+}
+.game-icon img:hover {
+    height: 530px;
+}
+
+.close {
+    animation: close .4s linear normal forwards;
+}
+
+.loader-icon {
+    text-align: center;
+    margin-top: 50px;
+    left: 50%;
+    top: 70%;
+    position: absolute;
+
+    transform: translate(-50%, 0%);
+
+    font-family: sans-serif;
+    color: white;
+    font-size: 50px;
+}
+
+@keyframes close {
+    0% {
+        height: 500px;
+    } 50% {
+        height: 530px;
+    } 100% {
+        height: 500px;
+    }
+}
+
+.message {
+    width: 40%;
+    height: 50vh;
+    background-color: var(--main_bg_color);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 5px solid var(--light_bg_color);
+    border-radius: 20px;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 10;
+}
+
+.welcome-player {
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+}
+.welcome-player img{
+    width: 25%;
+    margin-top: 2.5%;
+}
+
+.welcome-player h1 {
+    font-size: 250%;
+    font-weight: bold;
+    margin-top: 2.5%;
+}
+.welcome-player p {
+    font-size: 150%;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2.5%;
+}
+
+.accept-message-button button{
+    margin-top: 5%;
+    font-size: 200%;
+    background-color: var(--light_bg_color);
+    color: white;
+    padding: 1% 5% 1% 5%;
+    cursor: pointer;
+    pointer-events: all;
+    border: 5px solid --dark_bg_color;
+    border-radius: 20px;
+}
+.accept-message-button button:hover {
+    background-color: var(--main_bg_color);
+}
+
+.load-message {
+    animation: load_message .35s ease-in-out normal forwards;
+}
+.close-message {
+    animation: close_message .35s ease-in-out normal forwards;
+}
+
+@keyframes load_message {
+    0% {
+        display: block;
+        width: 0%;
+        height: 0vh;
+    } 100% {
+        width: 40%;
+        height: 50vh;
+    }
+}
+
+@keyframes close_message {
+    0% {
+        display: block;
+        width: 40%;
+        height: 50vh;
+    } 100% {
+        width: 0%;
+        height: 0vh;
+    }
+}
+
+.scoreboard {
+    width: 15%;
+    height: 10vh;
+    position: absolute;
+    top: -8vw;
+    left: -8vw;
+    background-color: var(--main_bg_color);
+
+    border-bottom: 5px solid var(--light_bg_color);
+    border-right: 5px solid var(--light_bg_color);
+    border-bottom-right-radius: 10px;
+
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+}
+.score-text {
+    transform: translate(0, 100%);
+}
+
+.blue-lable {
+    background-color: #143e86;
+    border-radius: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.red-lable {
+    background-color: #da4a54;
+    border-radius: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.currently-playing span {
+    margin-left: 15px;
+}
+#blue-points {
+    margin-right: 50px;
+}
+
+.load-scoradboard {
+    animation: load_scoradboard .8s linear normal forwards;
+}
+
+@keyframes load_scoradboard {
+    0% {
+        top: -8vw;
+        left: -8vw;
+    } 100% {
+        top: 0;
+        left: 0;
+    }
+}
+
+.match-ended{
+    width: 40%;
+    height: 50vh;
+    background-color: var(--main_bg_color);
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 5px solid var(--light_bg_color);
+    border-radius: 20px;
+    
+}
+
+.match-ended-message-load {
+    animation: load_ended_message .35s ease-in-out normal forwards;
+}
+
+@keyframes load_ended_message {
+    0% {
+        display: block;
+        width: 0%;
+        height: 0vh;
+    } 100% {
+        width: 40%;
+        height: 50vh;
+    }
+}
+
+.match-ended-message-close {
+    animation: close_ended_message .35s ease-in-out normal forwards;
+}
+
+@keyframes close_ended_message {
+    0% {
+        width: 40%;
+        height: 50vh;
+    } 99%{
+        opacity: 1;
+    } 100% {
+        width: 0;
+        height: 0;
+        display: none;
+        opacity: 0;
+    }
+}
+
+#confeti-overlay {
+    position: absolute;
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+.black-overlay {
+    width: 100%;
+    height: 100vh;
+
+    background-color: black;
+    opacity: 0.5;
+
+    position: absolute;
+
+    pointer-events: none;
+}
+
+.player-tooltip {
+    width: 20%;
+    height: 10vh;
+
+    top: -12vh;
+
+    background-color: var(--main_bg_color);
+    position: absolute;
+
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    border-bottom: 5px solid var(--light_bg_color);
+    border-right: 5px solid var(--light_bg_color);
+    border-left: 5px solid var(--light_bg_color);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    z-index: 40;
+
+    display: flex;
+}
+
+.instruction-icon {
+    width: 25%;
+    height: 100%;
+    float: left;
+
+}
+
+.instruction-icon img {
+    height: 6vh;
+    transform: translate(0,25%);
+
+    animation: animate-tooltip-icon .8s;
+}
+
+.instruction {
+    color: white;
+    font-family: sans-serif;
+    width: 75%;
+    height: 100%;
+
+    float: right;
+}
+
+.instruction h1 {
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.player-load-tooltip {
+    animation: load-tooltip .8s linear forwards normal;
+}
+
+@keyframes load-tooltip {
+    0% {
+        top: -12vh;
+    } 100% {
+        top: 0;
+    }
+}
+
+.buttons {
+    position: absolute;
+    z-index: 0;
+
+    transform: translate(50%, 50%);
+}
+
+.choice_button {
+    width: 500px;
+    height: 750px;
+}
+
+.choice_button button {
+    font-size: 50px;
+}
+
+.red-button {
+    background-color: red;
+    float: left;
+    margin-left: 250px;
+
+    opacity: 0.3;
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+.blue-button {
+    background-color: blue;
+    float: left;
+
+    opacity: 0.3;
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+.red-button:hover {
+    opacity: 0.4;
+} .blue-button:hover {
+    opacity: 0.4;
+}
+

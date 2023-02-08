@@ -1,0 +1,3 @@
+I am not currently hosting the version. In order to view it, please install the live sever VS code extension and then launch a live server by right clicking on the index.html file and then clicking on "Open with live server". You also need to enter your Croquet credentials on the line 1170 on the script.js file. Please ask me if you have any doubs on launching the game.
+
+NOTE: Please follow the instructions in the README file!
