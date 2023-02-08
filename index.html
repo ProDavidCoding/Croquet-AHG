@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic HTML info -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="t">First Version | Croquet Air Hockey Game</title>
+    <meta charset="utf-8">
+
+    <!-- Favicon (Change later because of the authors right's) -->
+    <link rel="shortcut icon" href="./assets/icons/favicon.png" type="image/x-icon">
+    <!-- CSS import -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Croquet Import (to not have to npm import the entire libary) -->
+    <script src="https://unpkg.com/@croquet/croquet@1.0.5"></script>
+    <!-- Jquery Import -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+</head>
+<body>
+    
+    <!-- The confeti overylay -->
+    <canvas id="confeti-overlay"></canvas>
+
+    <!-- The black overlay over the backround -->
+    <div class="black-overlay" id="black-overlay">
+    </div>
+
+    <!-- Player tooltip -->
+    <div class="player-tooltip" id="player-tooltip">
+        <div class="instruction">
+            <h1 id="tooltip-instructions">Move your mouse to move the paddle</h1>
+        </div>
+        <div class="instruction-icon">
+            <center>
+                <img src="./assets/icons/pointer.png" id="instruction-icon">
+            </center>
+        </div>
+    </div>
+
+    <!-- The loading overylay -->
+    <div class="loader-wrapper" id="loader-wrapper">
+        <div class="game-icon" id="game-icon">
+            <img src="./assets/icons/favicon.png" alt="Croquet Air Hockey Game" id="game-logo">
+        </div>
+        <div class="loader-icon">
+            <div class="percentage">
+                <h1 id="loaded-percentage">0%</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Info Box -->
+    <div class="message" id="message">
+        <div class="welcome-player">
+            <img src="./assets/icons/favicon.png" alt="Logo">
+            <div class="welcome-player-message">
+                <h1>Welcome to the Croquet Air Hockey Game!</h1>
+                <p>Have a look at the ongoing game on the Air Hockey table. Best to 3 wins! Once the game has finished, you can have a go against another opponent. Good luck and have fun!</p>
+            </div>
+            <div class="accept-message-button">
+                <button id="accept-message-button">Cool!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Match Ended Box -->
+    <div class="match-ended" id="match-info">
+        <div class="welcome-player" id="player-lost">
+            <img src="./assets/icons/sad.png" alt="Logo">
+            <div class="welcome-player-message">
+                <h1>You Lost :(</h1>
+                <p>Better luck next time!</p>
+            </div>
+            <div class="accept-message-button">
+                <button id="accept-match-message-button">Continue!</button>
+            </div>
+        </div>
+        <div class="welcome-player" id="player-won">
+            <img src="./assets/icons/happy.png" alt="Logo">
+            <div class="welcome-player-message">
+                <h1>You Won!</h1>
+                <p>Great Job! Have another go!</p>
+            </div>
+            <div class="accept-message-button">
+                <button id="accept-match-message-button">Continue!</button>
+            </div>
+        </div>
+        <div class="welcome-player" id="player-disconnected">
+            <img src="./assets/icons/wonder.png" alt="Logo">
+            <div class="welcome-player-message">
+                <h1>The other player disconnected :/</h1>
+                <p>You can go and have another go, hope they play the match this time!</p>
+            </div>
+            <div class="accept-message-button">
+                <button id="accept-match-message-button">Cool!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Scoarboard -->
+    <div class="scoreboard" id="scoreboard">
+        <div class="currently-playing score-text" id="current-score">
+            <h1><span class="blue-lable"></span><span id="blue-points">0</span><span class="red-lable"></span><span id="red-points">0</span></h1>
+        </div>
+        <div class="waiting-player score-text" id="scoreboard-player-missing">
+            <h1>Waiting for <span style="background-color: #da4a54; border-radius: 5px; padding-left: 5px; padding-right: 5px;">red</span> player!</h1>
+        </div>
+        <div class="no-game score-text" id="no-game">
+            <h1>No ongoing game.</h1>
+        </div>
+    </div>
+
+    <!-- The Overlay Buttons -->
+    <div class="buttons" id="buttons">
+        <div class="blue-button choice_button" onclick="join_game('blue')" id='jb'>
+            <center>
+                <button id="join_blue">
+                    <h1 id="blue_player_status"></h1>
+                </button>
+            </center>
+        </div>
+        <div class="red-button choice_button" onclick="join_game('red')" id='jr'>
+            <center>
+                <button id="join_red" >
+                    <h1 id="red_player_status"></h1>
+                </button>
+            </center>
+        </div>
+    </div>
+
+    <!-- The game canvas -->
+    <canvas class="webgl" pixelRatio={2.0} id="three"></canvas>
+    <!-- The javascript file -->
+    <script src="node_modules/confetti-js/dist/index.min.js"></script>
+    <script type="module" src="./script.js"></script>
+</body>
+</html>
